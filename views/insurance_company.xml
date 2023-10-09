@@ -1,0 +1,58 @@
+<odoo>
+  <data>  
+   <record id="insurance_company_tree_view" model="ir.ui.view">
+        <field name="name">insurance_company tree view</field>
+        <field name="model">insurance_company</field>
+        <field name="arch" type="xml"> 
+            <tree>
+                <field string= "Company name" name="name"/>
+            </tree> 
+        </field>
+    </record>
+
+    <record id="insurance_company_form_view" model="ir.ui.view">
+        <field name="name">insurance_company.form.view</field>
+        <field name="model">insurance_company</field>
+        <field name="arch" type="xml"> 
+            <form>
+                <group>
+                    <group>
+                        <field name="name"/>
+                        <!-- <field string="partner id" name="partner_id"/> -->
+                        <field string="Website" name="website"/>
+                        <field string="Tax ID" name="vat"/>
+                    </group>
+                    <group>
+                        <field string="Email" name="email"/>
+                        <field string="Phone" name="phone"/>
+                        <field string="Mobile" name="mobile"/>
+                    </group>
+                </group>
+                <group>
+                    <field string= "Patient" name="patient_id"/>
+                </group>
+                <group>
+                    <field string= "Plan" name="insurance_plan_id"/>
+                </group>
+                <group>
+                    <field string= "Claim" name="claim_id"/>
+                </group>
+                <group>
+                    <field string= "Visits" name="visit_id"/>
+                </group>
+            </form>
+        </field>
+    </record>
+
+    <record id="insurance_company_view_action" model="ir.actions.act_window">
+      <field name="name">Insurance Company</field>
+      <field name="res_model">insurance_company</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+
+    <menuitem id="insurance_company_parent_menu" name="Insurance Company" parent="hospital_parent_meun"/>
+
+    <menuitem id="insurance_company_menu" name="Insurance Company" action="insurance_company_view_action"
+    parent= "insurance_company_parent_menu"/>
+   </data>
+</odoo>

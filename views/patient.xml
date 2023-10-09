@@ -1,0 +1,65 @@
+<odoo>
+  <data>  
+   <record id="patient_tree_view" model="ir.ui.view">
+        <field name="name">patient tree view</field>
+        <field name="model">patient</field>
+        <field name="arch" type="xml"> 
+            <tree>
+                <field string= "Patient" name="name"/>
+                <field string= "Company" name="insurance_company_id"/>
+
+            </tree> 
+        </field>
+    </record>
+
+    <!-- <record id="patient_res_partner_form_view" model="ir.ui.view">
+        <field name="name">patient res partner form view</field>
+        <field name="model">res.partner</field>
+        <field name="inherit_id" ref="base.view_partner_form"/>
+        <field name="arch" type="xml"> 
+            <xpath expr="//field[@name='function']" position="attributes">
+                <attribute name="invisible">1</attribute>
+            </xpath>
+        </field>
+    </record> -->
+
+    <record id="patient_form_view" model="ir.ui.view">
+        <field name="name">patient.form.view</field>
+        <field name="model">patient</field>
+        <field name="arch" type="xml"> 
+            <form>
+                <group>
+                    <group>
+                        <field name="name"/>
+                        <!-- <field string="partner id" name="partner_id"/> -->
+                        <field string="Website" name="website"/>
+                        <field string="Tax ID" name="vat"/>
+                        <field string="Company" name="insurance_company_id"/>
+                    </group>
+                    <group>
+                        <field string="Email" name="email"/>
+                        <field string="Phone" name="phone"/>
+                        <field string="Mobile" name="mobile"/>
+                    </group>
+                </group>
+                <group>
+                    <field string= "Claim" name="claim_id"/>
+                </group>
+                <group>
+                    <field string= "Visit" name="visit_id"/>
+                </group>
+            </form>
+        </field>
+    </record>
+
+    <record id="patient_view_action" model="ir.actions.act_window">
+      <field name="name">Patients</field>
+      <field name="res_model">patient</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+
+
+    <menuitem id="patient_menu" name="Patients" action="patient_view_action"
+    parent= "hospital_parent_meun"/>
+   </data>
+</odoo>

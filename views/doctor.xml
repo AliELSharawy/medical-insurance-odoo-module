@@ -1,0 +1,62 @@
+<odoo>
+  <data>  
+   <record id="doctor_tree_view" model="ir.ui.view">
+        <field name="name">doctor tree view</field>
+        <field name="model">doctor</field>
+        <field name="arch" type="xml"> 
+            <tree>
+                <field string= "Doctor Name" name="name"/>
+            </tree> 
+        </field>
+    </record>
+
+    <!-- <record id="doctor_partner_form_view" model="ir.ui.view">
+        <field name="name">my.partner.form</field>
+        <field name="model">doctor</field>
+        <field name="inherit_id" ref="base.view_partner_form"/>
+        <field name="arch" type="xml"> 
+            <xpath expr="//field[@name='vat']" position="after">
+                <field name="name"/>
+            </xpath>
+            <xpath expr="//field[@name='function']" position="attributes">
+                <attribute name="invisible">1</attribute>
+            </xpath>
+        </field>
+    </record> -->
+
+    <record id="doctor_form_view" model="ir.ui.view">
+        <field name="name">doctor.form.view</field>
+        <field name="model">doctor</field>
+        <field name="arch" type="xml"> 
+            <form>
+                <group>
+                    <group>
+                        <field name="name"/>
+                        <!-- <field string="partner id" name="partner_id"/> -->
+                        <field string="Website" name="website"/>
+                        <field string="Tax ID" name="vat"/>
+                    </group>
+                    <group>
+                        <field string="Email" name="email"/>
+                        <field string="Phone" name="phone"/>
+                        <field string="Mobile" name="mobile"/>
+                    </group>
+                </group>
+                <group>
+                    <field string= "Claim" name="claim_id"/>
+                </group>
+            </form>
+        </field>
+    </record>
+
+    <record id="doctor_view_action" model="ir.actions.act_window">
+      <field name="name">Doctors</field>
+      <field name="res_model">doctor</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+
+
+    <menuitem id="doctor_menu" name="Doctors" action="doctor_view_action"
+    parent= "hospital_parent_meun"/>
+   </data>
+</odoo>

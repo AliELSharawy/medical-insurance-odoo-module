@@ -1,0 +1,44 @@
+<odoo>
+  <data>  
+   <record id="claim_tree_view" model="ir.ui.view">
+        <field name="name">claim tree view</field>
+        <field name="model">claim</field>
+        <field name="arch" type="xml"> 
+            <tree>
+                <field string= "Claim Name" name="name"/>
+            </tree> 
+        </field>
+    </record>
+
+    <record id="claim_form_view" model="ir.ui.view">
+        <field name="name">claim form view</field>
+        <field name="model">claim</field>
+        <field name="arch" type="xml"> 
+            <form>
+                <group>
+                <field string= "Claim Name" name="name"/>
+                <field string= "State" name="state"/>
+                <field string= "Insurance Company" name="insurance_company_id"/>
+                <field string= "Doctor" name="doctor_id"/>
+                <field string= "Patient" name="patient_id"/>
+                </group>
+                <group>
+                <field string= "Claim Line" name="claim_line_id"/>
+                </group>
+            </form> 
+        </field>
+    </record>
+
+    <record id="claim_view_action" model="ir.actions.act_window">
+      <field name="name">Claim</field>
+      <field name="res_model">claim</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+
+    <menuitem id="claim_parent_menu" name="Claim" parent="hospital_parent_meun"/>
+
+   <menuitem id="claim_menu" name="Claim" action="claim_view_action" 
+   parent="claim_parent_menu"/>
+  
+  </data>
+</odoo>

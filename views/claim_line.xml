@@ -1,0 +1,41 @@
+<odoo>
+  <data>  
+   <record id="claim_line_tree_view" model="ir.ui.view">
+        <field name="name">claim_line tree view</field>
+        <field name="model">claim_line</field>
+        <field name="arch" type="xml"> 
+            <tree>
+                <field string= "Claim Line Name" name="name"/>
+                <field string= "Claim Line Price" name="price"/>
+                <field name="product_id" string="Claim Line Product"/>
+                <field string= "Claim" name="claim_id"/>
+            </tree> 
+        </field>
+    </record>
+
+    <record id="claim_line_form_view" model="ir.ui.view">
+        <field name="name">claim_line form view</field>
+        <field name="model">claim_line</field>
+        <field name="arch" type="xml"> 
+            <form>
+                <group>
+                <field string= "Claim Line Name" name="name"/>
+                <field string= "Claim Line Price" name="price"/>
+                <field string= "Claim" name="claim_id"/>
+                <field name="product_id" string="Claim Line Product"/>
+                </group>
+            </form> 
+        </field>
+    </record>
+
+    <record id="claim_line_view_action" model="ir.actions.act_window">
+      <field name="name">Claim Line</field>
+      <field name="res_model">claim_line</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+
+
+    <menuitem id="claim_line_menu" name="Claim Line" action="claim_line_view_action"
+    parent= "claim_parent_menu"/>
+   </data>
+</odoo>

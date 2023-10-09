@@ -1,0 +1,54 @@
+<odoo>
+  <data> 
+
+   <record id="visit_tree_view" model="ir.ui.view">
+        <field name="name">visit tree view</field>
+        <field name="model">visit</field>
+        <field name="arch" type="xml"> 
+            <tree>
+                <field string= "ID" name= "id"/>
+                <field string= "Price" name="price"/>
+                <field string= "Doctor" name="doctor_id"/>
+                <field string= "Patients" name="patient_id"/>
+                <field string= "Insurance Company" name="insurance_company_id"/>
+                <field string= "Status" name= "state"/>
+            </tree> 
+        </field>
+    </record>
+
+     <record id="visit_form_view" model="ir.ui.view">
+        <field name="name">visit form view</field>
+        <field name="model">visit</field>
+        <field name="arch" type="xml"> 
+            <form>
+                <header>
+                        <button type= "object" name= "progress_visit" string= "In Progress" states= "new"/>
+                        <button type= "object" name= "finish_visit" string= "Finish" states= "progress"/>
+                        <field name= "state" string= "Status" widget= "statusbar"/>
+                </header>
+                <group>
+                    <!-- <field string= "id" name="id"/> -->
+                    <field string= "price" name="price" widget="datepicker"/>
+                    <field string= "Doctor" name="doctor_id"/>
+                    <field string= "Patients" name="patient_id"/>
+                    <field string= "Insurance Company" name="insurance_company_id"/>
+                    <field string= "Insurance Plan" name="insurance_plan_id" domain="[('insurance_company_id', '=', insurance_company_id)]"/>
+                </group>
+                <group>
+                    <field string= "Visit Lines" name="visit_line_id"/>
+                </group>
+            </form> 
+        </field>
+    </record>
+
+    <record id="visit_view_action" model="ir.actions.act_window">
+      <field name="name">Visits</field>
+      <field name="res_model">visit</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+
+    <menuitem id="visit_parent_menu" name="Visits" parent="hospital_parent_meun"/>
+
+    <menuitem id="vsiit_menu" name="Visits" action="visit_view_action" parent= "visit_parent_menu"/>
+   </data>
+</odoo>

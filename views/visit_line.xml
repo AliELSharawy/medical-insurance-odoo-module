@@ -1,0 +1,44 @@
+<odoo>
+  <data>  
+   <record id="visit_line_tree_view" model="ir.ui.view">
+        <field name="name">visit_line tree view</field>
+        <field name="model">visit_line</field>
+        <field name="arch" type="xml"> 
+            <tree>
+                <field string= "Visit Line Name" name="name"/>
+                <field name="currency_id" invisible="1"/>
+                <field string= "Company Share" name="insurance_company_share" widget="monetary"/>
+                <field string= "Patient Share" name="patient_share" widget="monetary"/>
+                <field string= "Visit Line Product" name="product_id"/>
+            </tree> 
+        </field>
+    </record>
+
+    <record id="visit_line_form_view" model="ir.ui.view">
+        <field name="name">visit_line form view</field>
+        <field name="model">visit_line</field>
+        <field name="arch" type="xml"> 
+            <form>
+                <group>
+                <field string= "Visit Line Name" name="name"/>
+                <field name="currency_id" invisible="1"/>
+                <field string= "Patient Share" name="patient_share" widget="monetary"/>
+                <field string= "Company Share" name="insurance_company_share" widget="monetary"/>
+                <field string= "Visit Line Product" name="product_id"/>
+                <field string= "Visit" name="visit_id"/>
+                </group>
+            </form> 
+        </field>
+    </record>
+
+    <record id="visit_line_view_action" model="ir.actions.act_window">
+      <field name="name">Visit Line</field>
+      <field name="res_model">visit_line</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+
+
+    <menuitem id="visit_line_menu" name="Visit Line" action="visit_line_view_action"
+    parent= "visit_parent_menu"/>
+   </data>
+</odoo>

@@ -1,0 +1,55 @@
+<odoo>
+    <data>
+        <!-- <record id="demo_config_view" model="ir.ui.view">
+            <field name="name">Demo Config Setting View</field>
+            <field name="model">res.config.settings</field>
+            <field name="inherit_id" ref="base.res_config_settings_view_form"/>
+            <field name="arch" type="xml">
+            <xpath expr="//field[@name='language_count']" position="after">
+                <field name="claim_state"/>
+            </xpath>
+            </field>
+        </record> -->
+
+        <record id="demo_config_settings_view" model="ir.ui.view">
+            <field name="name">Demo Config Setting View</field>
+            <field name="model">res.config.settings</field>
+            <field name="inherit_id" ref="base.res_config_settings_view_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//div[hasclass('settings')]" position="inside">
+                    <div class="app_settings_block" data-string="Visit" id="demo" string="Demo" data-key="demo">
+                        <h2>Claim State Config</h2>
+                        <div class="row mt16 o_settings_container" id="demo_setting">
+                        <div class="col-12 col-lg-6 o_setting_box">
+                        <div class="o_setting_left_pane"/>
+                        <div class="o_setting_right_pane">
+                        <span class="o_form_label">Claim State</span>
+                        <div class="text-muted content-group mt16">
+                        <span>Select Claim State </span>
+                        <field name="claim_state"/>
+                        <!-- <field name="claim_state" class="text-center" style="width: 10%; min-width: 4rem;"/> -->
+                        <!-- <span> Config Claim State</span> -->
+                    </div>
+                    </div>
+                    </div>
+                    </div>
+                    </div>
+                </xpath>
+            </field>
+        </record>
+
+
+        <record id="config_settings_view_action" model="ir.actions.act_window">
+            <field name="name">my config Settings</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">res.config.settings</field>
+            <field name="view_mode">form</field>
+            <field name="target">inline</field>
+            <field name="context">{'module' : 'demo', 'bin_size': False}</field>
+        </record>
+            
+        <menuitem id="config_settings_menu" name="Config Settings" parent="hospital_parent_meun"
+        sequence="0" action="config_settings_view_action" groups="base.group_system"/>
+
+    </data>
+</odoo>

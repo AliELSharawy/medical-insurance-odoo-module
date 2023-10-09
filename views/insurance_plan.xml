@@ -1,0 +1,40 @@
+<odoo>
+  <data>  
+   <record id="insurance_plan_tree_view" model="ir.ui.view">
+        <field name="name">insurance_plan tree view</field>
+        <field name="model">insurance_plan</field>
+        <field name="arch" type="xml"> 
+            <tree>
+                <field string= "Plan Name" name="name"/>
+                <field string= "Company" name="insurance_company_id"/>
+            </tree> 
+        </field>
+    </record>
+
+    <record id="insurance_plan_form_view" model="ir.ui.view">
+        <field name="name">insurance_plan form view</field>
+        <field name="model">insurance_plan</field>
+        <field name="arch" type="xml"> 
+            <form>
+                <group>
+                    <field string= "Plan Name" name="name"/>
+                    <field string= "Company" name="insurance_company_id"/>
+                </group>
+                <group>
+                    <field string= "Lines" name="insurance_plan_line_id"/>
+                </group>
+            </form> 
+        </field>
+    </record>
+
+    <record id="insurance_plan_view_action" model="ir.actions.act_window">
+      <field name="name">Insurance Plan</field>
+      <field name="res_model">insurance_plan</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+
+
+    <menuitem id="insurance_plan_menu" name="Insurance Plan" action="insurance_plan_view_action"
+    parent= "insurance_company_parent_menu"/>
+   </data>
+</odoo>

@@ -1,0 +1,45 @@
+<odoo>
+  <data>  
+   <record id="insurance_plan_line_tree_view" model="ir.ui.view">
+        <field name="name">insurance_plan_line tree view</field>
+        <field name="model">insurance_plan_line</field>
+        <field name="arch" type="xml"> 
+            <tree>
+                <field string= "Line Name" name="name"/>
+                <field string= "Plan Line Price" name="price"/>
+                <field string= "Plan Line Product" name="product_id"/>
+                <field string= "Percentage" name="percentage"/>
+            </tree> 
+        </field>
+    </record>
+
+    <record id="insurance_plan_line_form_view" model="ir.ui.view">
+        <field name="name">insurance_plan_line form view</field>
+        <field name="model">insurance_plan_line</field>
+        <field name="arch" type="xml"> 
+            <form>
+                <group>
+                    <!-- <field string= "Line Name" name="name"/> -->
+                    <field string= "Plan Line Name" name="name"/>
+                    <field string= "Plan Line Price" name="price"/>
+                    <field string= "Plan Line Product" name="product_id"/>
+                    <field string= "Percentage" name="percentage"/>
+                </group>
+                <group>
+                    <field string= "Plan" name="insurance_plan_id"/>
+                </group>
+            </form> 
+        </field>
+    </record>
+
+    <record id="insurance_plan_line_view_action" model="ir.actions.act_window">
+      <field name="name">Insurance Plan Line</field>
+      <field name="res_model">insurance_plan_line</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+
+
+    <menuitem id="insurance_plan_line_menu" name="Insurance Plan Line" action="insurance_plan_line_view_action"
+    parent= "insurance_company_parent_menu"/>
+   </data>
+</odoo>
